@@ -1,0 +1,24 @@
+[package]
+name = "volbench"
+version = "0.1.0"
+edition = "2021"
+description = "Diagnose filesystem + SQLite latency on a folder (VHD / network / virtual volume slowdowns)"
+license = "MIT"
+repository = "https://github.com/aovestdipaperino/volbench"
+readme = "README.md"
+keywords = ["benchmark", "filesystem", "sqlite", "vhd", "latency"]
+categories = ["command-line-utilities", "filesystem"]
+
+[[bin]]
+name = "volbench"
+path = "src/main.rs"
+
+[dependencies]
+# Tree walk — same crate family tokensave uses; the per-entry stat cost is identical.
+walkdir = "2"
+# Real SQLite, compiled from source (no system lib needed) so `cargo install` works
+# everywhere including Windows MSVC. WAL/mmap/fsync behaviour is the real C engine.
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+[profile.release]
+opt-level = 3
