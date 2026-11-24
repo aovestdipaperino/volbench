@@ -1,5 +1,7 @@
 # volbench
 
+[![GitHub stars](https://img.shields.io/github/stars/aovestdipaperino/volbench?logo=github&color=brightgreen)](https://github.com/aovestdipaperino/volbench/stargazers)
+
 A tiny standalone benchmark that measures **filesystem metadata latency** and
 **SQLite WAL/mmap behaviour** for a given folder.
 
